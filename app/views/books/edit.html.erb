@@ -1,0 +1,16 @@
+<h1>編輯書本</h1>
+
+<%if @book.errors.any? %>
+<ul>
+<% @book.errors.full_messages.each do |message| %>
+<li><%= message %></li>
+<% end %>
+</ul>
+<% end %>
+
+
+
+<%= form_for(@book) do |f| %>
+  <%= f.text_field :title %>
+  <%= f.submit '改變書名' %>
+  <% end %>
