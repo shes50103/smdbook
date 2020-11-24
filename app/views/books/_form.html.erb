@@ -1,0 +1,17 @@
+<% if book.errors.any? %>
+<ul>
+<% book.errors.full_messages.each do |message| %>
+<li><%= message %></li>
+<% end %>
+</ul>
+<% end %>
+
+
+
+<%= form_for(book) do |f| %>
+  <%= f.text_field :title %>
+  <%= f.submit "新增變更書名" %>
+  <% end %>
+
+<%# #底線檔不要用實體變數 這邊@要拿掉 但是不能運作 要從render改 %>
+<%# #有類似的需求 ex:多個廣告 讓各自的頁面去抓對應的變數來這邊代入 稱局部渲染 所以不一開始就用實體變數主動去抓  %>

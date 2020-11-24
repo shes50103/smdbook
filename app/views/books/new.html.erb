@@ -1,16 +1,6 @@
 <h1>新增書籍</h1>
 
-<%if @book.errors.any? %>
-<ul>
-<% @book.errors.full_messages.each do |message| %>
-<li><%= message %></li>
-<% end %>
-</ul>
-<% end %>
+<%= render 'form' , book = @book %>
 
-
-
-<%= form_for(@book) do |f| %>
-  <%= f.text_field :title %>
-  <%= f.submit '建立新書' %>
-  <% end %>
+<%# #與edit太像 合併模組化進去form %>
+<%# render book = @book 解決底線檔不用實體變數 %>

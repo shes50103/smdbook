@@ -1,13 +1,18 @@
 <h1>書籍列表</h1>
 
-<%= link_to '新增書籍',new_book_path %> 
+<%= link_to "新增書籍", new_book_path %> 
+
+
 
 <ul class="booklist">
 <% @books.each do |book| %>
 <li>
-<%= link_to book.title ,book_path(book.id)%>
-<%= link_to '編輯',edit_book_path(book.id)%>
-<%= link_to '刪除',book_path(book.id),method: 'delete'%>
+<%= link_to "編輯", edit_book_path(book) %>  <%# #book.id不用寫id path會自動幫忙長出來 而且省略完之後book_path(book)可以再省變成book%>
+<%= link_to "刪除", book,            
+                    #method: 'delete',
+                    data: { confirm: '是否確定刪除？' } %>
+<%= link_to book.title, book %>    <%# #book.id不用寫id path會自動幫忙長出來 而且省略完之後book_path(book)可以再省變成book%>
 </li>
 <% end %>
 </ul>
+
